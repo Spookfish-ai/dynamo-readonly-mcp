@@ -23,6 +23,7 @@ export const getDynamodb = (): DynamoDBDocumentClient => {
       credentials: {
         accessKeyId: process.env.AWS_ACCESS_KEY_ID || '',
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || '',
+        sessionToken: process.env.AWS_SESSION_TOKEN || undefined, // Optional, only if using temporary credentials
       },
     });
     dynamoDbDocClient = DynamoDBDocumentClient.from(dynamoDbClient);
